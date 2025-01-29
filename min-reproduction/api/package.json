@@ -1,0 +1,25 @@
+{
+  "name": "api",
+  "type": "module",
+  "scripts": {
+    "dev": "npm i; cd ../.workspace && npm i; cd ../api; pm2 start 'tsx src/index.ts' --name app --watch ./src --watch ../.workspace/repo/lib --watch ../.workspace/repo/lib --watch ../.workspace/repo/api --ignore-watch='node_modules' --no-daemon --restart-delay=5000",
+    "start": "pm2 start 'tsx src/index.ts' --name app",
+    "stop": "pm2 stop app; pm2 kill",
+    "serve": "tsx src/index.ts",
+    "compile": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "tsx": "^4.7.1"
+  },
+  "dependencies": {
+    "@databases/pg": "^5.5.0",
+    "@hono/zod-openapi": "^0.18.3",
+    "@scalar/hono-api-reference": "^0.5.163",
+    "hono-openapi": "^0.2.1",
+    "pm2": "^5.4.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2",
+    "zod-openapi": "^4.1.0"
+  }
+}
