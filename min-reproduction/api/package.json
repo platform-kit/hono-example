@@ -2,7 +2,7 @@
   "name": "api",
   "type": "module",
   "scripts": {
-    "dev": "npm i; cd ../.workspace && npm i; cd ../api; pm2 start 'tsx src/index.ts' --name app --watch ./src --watch ../.workspace/repo/lib --watch ../.workspace/repo/lib --watch ../.workspace/repo/api --ignore-watch='node_modules' --no-daemon --restart-delay=5000",
+    "dev": "npm i; cd ../workspace && npm i; cd ../api; pm2 start 'tsx src/index.ts' --name app --watch ./src --watch ../.workspace/repo/lib --watch ../.workspace/repo/lib --watch ../.workspace/repo/api --ignore-watch='node_modules' --no-daemon --restart-delay=5000",
     "start": "pm2 start 'tsx src/index.ts' --name app",
     "stop": "pm2 stop app; pm2 kill",
     "serve": "tsx src/index.ts",
