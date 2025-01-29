@@ -4,7 +4,6 @@ import { serve } from "@hono/node-server";
 import { apiReference } from "@scalar/hono-api-reference";
 import { OpenAPIHono } from "@hono/zod-openapi";
 import { logger } from "hono/logger";
-import { waitUntil } from "async-wait-until";
 import { trimTrailingSlash } from "hono/trailing-slash";
 
 // Log
@@ -38,14 +37,14 @@ for (const fn of functionsWithPath) {
   function setupRoute(module: any) {
     console.log(
       "Mounting function # " +
-        current +
-        " of " +
-        total +
-        "/api/" +
-        fn.name +
-        "\n" +
-        fn.path +
-        "\n\n"
+      current +
+      " of " +
+      total +
+      "/api/" +
+      fn.name +
+      "\n" +
+      fn.path +
+      "\n\n"
     );
 
     try {
@@ -61,7 +60,7 @@ for (const fn of functionsWithPath) {
     .then(async (module) => setupRoute(module))
     .catch((error) => console.log(error));
 }
-await waitUntil(() => current >= total + 1, { timeout: 10000 });
+
 
 // The OpenAPI spec will be available at /api/openapi-spec.json
 app.doc("/api/openapi-spec.json", {
